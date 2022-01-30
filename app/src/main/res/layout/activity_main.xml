@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:elevation="1dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:progress="0"
+        android:progressTint="@color/white"
+        android:scrollbarSize="0dp"
+        android:translationY="0dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/botNavView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/sliding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:umanoPanelHeight="124dp"
+        app:umanoShadowHeight="4dp">
+
+        <fragment
+            android:id="@+id/fragContView"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_bottom_view" />
+
+        <fragment
+            android:id="@+id/fragSlidingCont"
+            android:name="com.iratebear.apollo.fragments.SlidingFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+        </fragment>
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/botNavView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:itemIconTint="@color/bnv_selected_color"
+        app:itemRippleColor="@color/white"
+        app:itemTextAppearanceActive="@style/BottomNavigationActiveItemTextAppearance"
+        app:itemTextColor="@color/bnv_selected_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_bottom_nav_view" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
